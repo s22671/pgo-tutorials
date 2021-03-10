@@ -1,0 +1,21 @@
+// KLASY 
+
+Person 
+Professor
+Student 
+Address
+
+// ATRYBUTY I ICH TYPY DANYCH 
+
+Name - String 
+Surname - String 
+Age - int 
+IntroduceYourself()-String
+Street-String
+City-String
+State-String
+Postal Code-int
+Country-String
+Student Number-int
+Average Mark-int
+Salary-int
