@@ -20,15 +20,15 @@ public class Main {
         System.out.println("The engine has: " + engineCapacity);
 
         System.out.println("\n Is engine hight speed?");
-        System.out.println(String.valueOf(myCar.isHighSpeed()));
-        /*
+        
+        
         if(myCar.isHighSpeed())
             System.out.println("True");
         else
             System.out.println("False");
 
 
-         */
+         
 
 
 
