@@ -1,0 +1,183 @@
+
+public class Main {
+
+
+    public static void main (String[] args){
+
+        System.out.println("ZADANIE 1 ");
+        Telephone phone = new Telephone("xioami", 6.5, 683845723);
+        String message = "HI";
+        System.out.println("Send message " + message + " on number " + phone.number  );
+
+
+        System.out.println("\n ZADANIE 2 & 3 ");
+        Car myCar = new Car ("While","Toyota", 1.5);
+        String colour = myCar.getColour();
+        System.out.println("The car has a color: " + colour);
+        String brand = myCar.getBrand();
+        System.out.println("The brand is: " + brand);
+        double engineCapacity = myCar.engineCapacity;
+        System.out.println("The engine has: " + engineCapacity);
+
+        System.out.println("\n Is engine hight speed?");
+       
+        if(myCar.isHighSpeed())
+            System.out.println("True");
+        else
+            System.out.println("False");
+
+
+    
+
+
+
+    }
+
+}
+
+class Car{
+    String color;
+    String brand;
+    double engineCapacity;
+
+
+    public Car(String color, String brand, double engineCapacity){
+        this.color = color;
+        this.brand = brand;
+        this.engineCapacity = engineCapacity;
+    }
+
+    public String getColour(){
+        return this.color;
+    }
+    public String getBrand(){
+        return this.brand;
+    }
+
+    public boolean isHighSpeed(){
+     if (this.engineCapacity>=2)
+         return true;
+     else
+         return false;
+    }
+
+}
+
+
+class Telephone {
+
+
+    String mark;
+    double resolution;
+    int number;
+
+    public Telephone (String mark, double resolution, int number){
+        this.mark = mark;
+        this.resolution = resolution;
+        this.number = number;
+
+    }
+
+    String X = "HI";
+
+    public void sendMessage(String text){
+        System.out.println("Send message " + X + "on number " + number);
+    }
+
+}
+
+
+
+
+
+public class Main {
+
+
+    public static void main (String[] args){
+
+        System.out.println("ZADANIE 1 ");
+        Telephone phone = new Telephone("xioami", 6.5, 683845723);
+        String message = "HI";
+        System.out.println("Send message " + message + " on number " + phone.number  );
+
+
+        System.out.println("\n ZADANIE 2 & 3 ");
+        Car myCar = new Car ("While","Toyota", 1.5);
+        String colour = myCar.getColour();
+        System.out.println("The car has a color: " + colour);
+        String brand = myCar.getBrand();
+        System.out.println("The brand is: " + brand);
+        double engineCapacity = myCar.engineCapacity;
+        System.out.println("The engine has: " + engineCapacity);
+
+        System.out.println("\n Is engine hight speed?");
+        System.out.println(String.valueOf(myCar.isHighSpeed()));
+        /*
+        if(myCar.isHighSpeed())
+            System.out.println("True");
+        else
+            System.out.println("False");
+
+
+         */
+
+
+
+    }
+
+}
+
+class Car{
+    String color;
+    String brand;
+    double engineCapacity;
+
+
+    public Car(String color, String brand, double engineCapacity){
+        this.color = color;
+        this.brand = brand;
+        this.engineCapacity = engineCapacity;
+    }
+
+    public String getColour(){
+        return this.color;
+    }
+    public String getBrand(){
+        return this.brand;
+    }
+
+    public boolean isHighSpeed(){
+     if (this.engineCapacity>=2)
+         return true;
+     else
+         return false;
+    }
+
+}
+
+
+class Telephone {
+
+
+    String mark;
+    double resolution;
+    int number;
+
+    public Telephone (String mark, double resolution, int number){
+        this.mark = mark;
+        this.resolution = resolution;
+        this.number = number;
+
+    }
+
+    String X = "HI";
+
+    public void sendMessage(String text){
+        System.out.println("Send message " + X + "on number " + number);
+    }
+
+}
+
+
+
+
