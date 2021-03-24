@@ -1,0 +1,80 @@
+
+public class Main {
+    public static void main (String[] args) {
+
+        System.out.println("ZADANIE 1 ");
+        Airplane plane = new Airplane("Lot", 645);
+        String brand = plane.getBrand();;
+        System.out.println("Brand of airplane is: " + brand);
+        System.out.println(plane.getNumberOfSeats());
+        plane.changOfSeats(45);
+        System.out.println(plane.getNumberOfSeats());
+
+        System.out.println("\nZADANIE 2 ");
+        Engine engine = new Engine(19000, 2020);
+        double numberEngineHorses = engine.getnumberEngineHorses();
+        System.out.println("Numebr of engine horese is: " + numberEngineHorses);
+        int yearOfProduction = engine.getyearOfProdution();
+        System.out.println("Year od production is: "+ yearOfProduction);
+        System.out.println("\nPlane is eco?");
+        if (engine.isEco()){
+            System.out.println("Engine is eco ");}
+        else{
+            System.out.println("Engine isn't eco ");
+        }
+
+    }
+}
+
+
+
+class Airplane {
+
+    private String brand;
+    private int numberOfSeats;
+
+    public Airplane (String brand, int numberOfSeats) {
+        this.brand = brand;
+        this.numberOfSeats = numberOfSeats;
+    }
+
+    public  String getBrand (){
+        return this.brand;
+    }
+
+    public int getNumberOfSeats(){
+        return this.numberOfSeats;
+    }
+
+    public void changOfSeats(int n){
+        this.numberOfSeats = n;
+    }
+
+}
+
+
+
+
+class Engine{
+
+    private double  numberEngineHorses;
+    private int yearOfProduction;
+    public  boolean isEco;
+
+    public Engine (double numberEngineHorses, int yearOfProduction){
+        this.numberEngineHorses = numberEngineHorses;
+        this.yearOfProduction = yearOfProduction;
+    }
+
+    public double getnumberEngineHorses () {
+        return this.numberEngineHorses;
+    }
+
+    public int getyearOfProdution (){
+        return this.yearOfProduction;
+    }
+
+    public boolean isEco(){
+        return (numberEngineHorses<=20000 && yearOfProduction>2000);
+    }
+}
