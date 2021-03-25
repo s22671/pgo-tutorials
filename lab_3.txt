@@ -59,7 +59,7 @@ class Engine{
 
     private double  numberEngineHorses;
     private int yearOfProduction;
-    protected  boolean isEco;
+    private  boolean isEco;
 
     public Engine (double numberEngineHorses, int yearOfProduction){
         this.numberEngineHorses = numberEngineHorses;
