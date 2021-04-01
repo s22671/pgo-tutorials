@@ -1,0 +1,109 @@
+public class Main {
+    public static void main (String[] args) {
+        User guest1 = new User("sobyrt@gmail.com");
+        User guest2 = new User("aswebyl@gmail.com");
+        User user1 = new User(guest1, "Maria", "Kowalska", "maslo");
+
+        Product brush = new Product("brush", 8.5, 350234993, 589);
+        double price = brush.getPrice();
+        System.out.println("Price brush is "+ price);
+        brush.changePrice(5.35);
+        System.out.println("Now price brush is "+ brush.getPrice());
+        int quantity = brush.getQuantity();
+        System.out.println("\nQuantity brush is "+ quantity);
+        brush.changeQuantity(3535);
+        System.out.println("Now quantity is "+ brush.getQuantity());
+
+        Product book = new Product("book", 50.5, 234998, 213);
+        Product bike = new Product("bike", 250.5, 2139843, 99);
+        price = bike.getPrice();
+        System.out.println("\nPrice bike is " + price);
+        bike.changePrice(209.99);
+        System.out.println("New price bike is " + bike.getPrice());
+        Product paper = new Product("paper", 23.09, 987313);
+        quantity = paper.getQuantity();
+        System.out.println("\nQuantity paper is " + quantity);
+        paper.changeQuantity(5);
+        System.out.println("Now quantity is " + paper.getQuantity());
+
+    }
+
+}
+
+
+
+class User {
+
+    private String firstname;
+    private String lastName;
+    private String email;
+    private String password;
+    private boolean isGuest;
+
+    public User(String firstname,String  lastName, String email, String password){
+        this.firstname = firstname;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.isGuest = false;
+    }
+
+    public User ( String email){
+        this.email = email;
+        this.isGuest = true;
+    }
+
+    public User ( User user, String firstname, String lastName, String password ) {
+        this.firstname = firstname;
+        this.lastName = lastName;
+        this.email = user.email;
+        this.password = password;
+        this.isGuest = false;
+    }
+}
+
+
+
+
+class Product {
+
+    private String thing;
+    private double price;
+    private int code;
+    private int quantity;
+
+    public Product(String name, double price, int code){
+        this.thing = name;
+        this.price = price;
+        this.code = code;
+        this.quantity = 0;
+
+    }
+
+    public Product(String name, double price, int code, int quantity){
+        this.thing = name;
+        this.price = price;
+        this.code = code;
+        this.quantity = quantity;
+
+    }
+
+
+    public double getPrice(){
+        return price;
+    }
+    public int getQuantity(){
+        return quantity;
+    }
+
+    public void changePrice(double a){
+        this.price = a;
+    };
+
+    public void changeQuantity(int a){
+        this.quantity = a;
+    };
+
+
+
+}
