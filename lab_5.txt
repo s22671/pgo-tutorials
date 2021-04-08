@@ -1,0 +1,116 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        Product milk = new Product("milk", 4.99, 543);
+        Product water = new Product("water", 2.59, 920);
+        Product apple = new Product("apple", 0.99, 3892);
+        List<Product> products = new ArrayList<>(3);
+        products.add(milk);
+        products.add(water);
+        products.add(apple);
+
+        Category myProduct = new Category(products);
+        myProduct.showProducts();
+        System.out.println("-------------------------------------");
+
+        Product candy = new Product("candy", 0.99, 2345);
+        myProduct.add(candy);
+        products.remove(apple);
+        myProduct.showProducts();
+        
+
+    }
+}
+
+class Product{
+
+    private String productName;
+    private double productPrice;
+    private int productQuantity;
+
+
+    public Product(String productName,double productPrice, int productQuantity){
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productQuantity = productQuantity;
+    }
+    public String getProductName(){
+        return productName;
+    }
+    public double getProductPrice() {
+        return productPrice;
+    }
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+}
+
+class Category{
+
+    private String categoryName;
+    private List<Product> products = new ArrayList<>();
+
+    public Category(List<Product> products){
+        this.categoryName = categoryName;
+        this.products = products;
+    }
+    public void showProducts(){
+        for(Product product:this.products){
+            System.out.println(product.getProductName() + " price is " + product.getProductPrice() + "quantity of it is " + product.getProductQuantity());
+        }
+    }
+
+    public void add(Product product){
+        this.products.add(product);
+    }
+    public double calculaterPrice(){
+        double suma=0;
+        for (Product product: this.products){
+            suma = suma + product.getProductPrice();
+
+        }
+        return  suma;
+    }
+}
+
+class Basket {
+    public List<Product> productList;
+    String userName;
+    int productsCount;
+
+    public Basket(String user_name) {
+        this.productsCount = 0;
+        this.productList = new ArrayList<>();
+        this.userName = userName;
+    }
+
+    public Basket(String user_name, List<Product> products){
+        this.productsCount = 0;
+        this.userName = userName;
+        this.productList = products;
+    }
+
+    public boolean addProduct(Product toAdd){
+        productsCount++;
+        return productList.add(toAdd);
+    }
+
+    public boolean removeProduct(Product toRemove){
+        productsCount--;
+        return productList.remove(toRemove);
+    }
+
+    public void pay() {
+        int cost = 0;
+        for (Product p: productList) {
+            cost += p.getProductPrice();
+        }
+        System.out.println("Total: " + cost);
+    }
+
+
+}
