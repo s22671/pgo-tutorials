@@ -1,0 +1,109 @@
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args){
+    }
+}
+
+class Multiplier {
+
+    public static void main(String args[]) {
+        System.out.println(multiply(1,2));
+        System.out.println(multiply(1,2,3,4));
+        System.out.println(multiply(1.1, 2.2));
+        System.out.println(multiply(new BigDecimal(3), new BigDecimal(9)));
+
+        List<Integer> lista = Arrays.asList(1,2,3,4);
+
+        System.out.println(multiply(lista));
+    }
+
+    public static int multiply(int a, int b) {
+        return a*b;
+    }
+
+
+    public static int  multiply(int a, int b, int c, int d){
+    return multiply(a, b) * multiply (c, d);
+    }
+
+
+    public static double multiply(double a, double b) {
+        return a*b;
+    }
+
+
+    public static BigDecimal multiply(BigDecimal a, BigDecimal b){
+        return a.multiply(b);
+    }
+
+
+    public static Integer multiply(List<Integer> numbers) {
+        Integer result = 0;
+        for (Integer number : numbers) {
+            result = result * number;
+        }
+        return result;
+    }
+}
+
+ class Adder{
+    public static void main(String args[]) {
+
+        System.out.println(add(1,2));
+
+        List<BigDecimal> numbers = new ArrayList<BigDecimal>();
+        numbers.add(new BigDecimal(10));
+        numbers.add(new BigDecimal(20));
+
+        System.out.println(add(numbers));
+    }
+
+    public static int add(int a, int b){
+        return a+b;
+    }
+
+    public static BigDecimal add(List<BigDecimal> numbers) {
+        BigDecimal result = new BigDecimal("0");
+        for (BigDecimal number : numbers) {
+            result = result.add(number);
+        }
+
+        return result;
+    }
+}
+
+class Address{
+
+    public static void main(String args[]) {
+        System.out.println(createAddress("a"));
+        System.out.println(createAddress("a", "Verona"));
+        System.out.println(createAddress("Italy", "Verona", "89-234"));
+        System.out.println(createAddress("Italy", "Verona", "89-234", "Via Carlo Poma"));
+        System.out.println(createAddress("Italy", "Verona", "89-234", "Via Carlo Poma", 891));
+    }
+
+    public static String createAddress(String country) {
+        return String.format("Country: %s ", "Italy ");
+    }
+
+    public static String createAddress(String country, String city){
+        return String.format("Country %s, City %s ", "Italy", "Verona");
+    }
+
+    public static String createAddress(String country, String city, String postalCode){
+        return String.format("Country %s, City %s, Postal Code %s ", "Itlay", "Verona", "89-234");
+    }
+
+    public static String createAddress(String country, String city, String postalCode, String Street){
+        return String.format("Country %s, City %s, Postal Code %s, Street %s ", "Italy", "Verona", "89-234", "Via Carlo Poma");
+    }
+
+    public static String createAddress(String country, String city, String postalCode, String Street, double houseNumber){
+        return String.format("Country %s, City %s, Postal Code %s, Street %s, House number %d ", "Italy", "Verona", "89-234", "Via Carlo Poma", 891);
+    }
+}
+
