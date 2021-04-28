@@ -1,0 +1,97 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        Furniture table = new Furniture("table", 230.55);
+        Furniture chair = new Furniture("chair", 89.99);
+        List furnitureList = new ArrayList();
+        furnitureList.add(table);
+        furnitureList.add(chair);
+
+        Room room1=new Room(43.99, furnitureList);
+        Room room2=new Room(998.9, furnitureList);
+        List furnitureList1 = new ArrayList();
+        furnitureList1.add(room1);
+        furnitureList1.add(room2);
+    }
+}
+
+public class Furniture {
+    private String name;
+    private  double price;
+    final double VAT = 0.25;
+
+    public Furniture( String name, double price){
+        this.name=name;
+        this.price=price;
+    }
+
+    public double getPriceVAT(){
+        return  this.price + this.price*VAT;
+    }
+
+    public double getPriceWithoutVAT(){
+        return  this.price;
+    }
+}
+
+
+import java.util.List;
+
+public class Room {
+
+    private double space;
+    private List<Furniture> furnitures;
+
+    public Room(double space, List<Furniture> furnitures){
+        this.space=space;
+        this.furnitures=furnitures;
+    }
+
+    public  double getPriceVAT() {
+        double price = 0.0;
+        List<Furniture> list = this.furnitures;
+
+        for (Furniture f : list){
+            price = price+f.getPriceVAT();
+        }
+        return price;
+    }
+}
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class House {
+    private List rooms= new ArrayList();
+    private String address;
+    private static int NumberOfRoom = 0;
+
+    private House(String address){
+        this.address=address;
+    }
+
+    public static  House createHouse(String address){
+        House house = new House(address);
+        return house;
+    }
+
+    public void addRoom(Room room){
+        this.rooms.add(room);
+        this.NumberOfRoom++;
+    }
+
+    public void addRome(List<Room> list){
+        for(Room room : list){
+            addRoom(room);
+        }
+    }
+
+    public int getNumberOfRoom(){
+        return this.NumberOfRoom;
+    }
+}
