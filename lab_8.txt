@@ -1,0 +1,64 @@
+public class Main {
+    public static void main (String[] args){
+
+    }
+}
+
+
+public class Point {
+
+    private int x;
+    private int y;
+    private static int xSecond;
+    private static int ySecond;
+
+    private Point(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    private  Point(){
+    };
+
+
+
+    public void setY(int v) {
+        this.y = y;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public static Point createPoint(){
+        return new Point(xSecond, ySecond);
+    }
+
+    public static Point createPoint1(int x, int y){
+        return  new Point(x,y);
+    }
+}
+
+import java.util.List;
+
+public class CreditCardForm {
+    private int cardNumber;
+    private int CVC;
+    private int cardValidity;
+    private static List<Integer> years;
+
+    public CreditCardForm(int cardNumber, int CVC) {
+        this.cardNumber = cardNumber;
+        this.CVC = CVC;
+        cardValidity= years.get((int)Math.random()*20);
+
+    }
+}
