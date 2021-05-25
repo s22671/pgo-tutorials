@@ -1,0 +1,247 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main (String[] args){
+
+        double radius = 3d;
+        Figure circle = new Circle(radius);
+
+        double baseSide = 10d;
+        double side = 5d;
+        double height = 8d;
+        Figure parallelogram = new Parallelogram(baseSide, side, height);
+
+        double sideA = 15d;
+        double sideB = 10;
+        Figure rectangle = new Rectangle(sideA,sideB);
+
+        List<Figure> figures = new ArrayList<>(3);
+        figures.add(circle);
+        figures.add(parallelogram);
+        figures.add(rectangle);
+
+        for (Figure figure : figures) {
+            System.out.println(figure.getType());
+            System.out.println("Area: " + figure.getArea() + " units.");
+            System.out.println("Perimeter: " + figure.getPerimeter() + " units.\n");
+        }
+
+
+
+            Cat mruczek = new Cat("Mruczek");
+            mruczek.start();
+            System.out.println(mruczek.getType());
+            mruczek.stop();
+
+        System.out.println("");
+        Manager manager = new Manager("Jan", "Kowalski", 1990, 2010, "PJATK", 2000d,
+                100d);
+        System.out.println(manager);
+        }
+    }
+
+
+
+
+interface  Figure{
+    double getPerimeter();
+    double getArea();
+    String getType();
+}
+
+
+class Circle implements Figure {
+    double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getPerimeter() {
+        return 2*3.14*radius;
+    }
+
+    public double getArea() {
+        return 3.14*radius*radius;
+    }
+
+    public String getType() {
+        return "Circle";
+    }
+}
+
+
+
+class Parallelogram implements Figure {
+        double baseSide;
+        double side;
+        double height;
+
+public Parallelogram(double baseSide, double side, double height) {
+        this.baseSide = baseSide;
+        this.side = side;
+        this.height = height;
+        }
+
+public double getPerimeter() {
+        return 2*baseSide+2*side;
+        }
+
+public double getArea() {
+        return baseSide*height;
+        }
+
+public String getType() {
+        return "Parallelogram";
+        }
+        }
+
+class Rectangle implements Figure {
+    double sideA;
+    double sideB;
+
+    public Rectangle(double sideA, double sideB) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    public double getPerimeter() {
+        return 2*sideA+2*sideB;
+    }
+
+    public double getArea() {
+        return sideA*sideB;
+    }
+
+    public String getType() {
+        return "Rectangle";
+    }
+}
+
+
+
+
+
+
+
+
+
+abstract class Animal{
+    public String name ;
+
+    public Animal() {
+
+    }
+
+    abstract String getMruczek();
+    abstract String getType();
+
+    public Animal(String name){
+        this.name = name;
+    }
+}
+
+
+interface  Moveable{
+    void start();
+    void stop();
+}
+
+
+class Cat extends Animal implements Moveable{
+
+    public  Cat(String name){
+        super();
+    }
+
+    public void start(){
+        System.out.println("Cat start");
+    }
+
+    public void stop(){
+        System.out.println("Cat stopped");
+    }
+
+    @Override
+    String getMruczek() {
+        return null;
+    }
+
+    public String getType(){
+        return "Cat";
+    }
+
+    public String getName(){
+        return name;
+    }
+}
+
+
+abstract  class Person {
+    private String firstName;
+    private String lastName;
+    private int birthdatyYear;
+
+    public Person (String firstName, String lastName, int birthdatyYear){
+        this.birthdatyYear=birthdatyYear;
+        this.lastName=lastName;
+        this.firstName=firstName;
+    }
+
+    public int getAge(){
+        int curentYear= LocalDate.now().getYear();
+        int age=curentYear-this.birthdatyYear;
+        return age;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+
+}
+
+class Emploee extends Person{
+
+    private  int hireDate;
+    private  String companyName;
+    private double salary;
+
+    public Emploee(String firstName, String lastName, int birthdatyYear, int hireDate, String companyName,double salary) {
+        super(firstName, lastName, birthdatyYear);
+        this.hireDate=hireDate;
+        this.companyName=companyName;
+        this.salary=salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public  int getJobSeniority(){
+        int curretYear = LocalDate.now().getYear();
+        int seniority=curretYear-this.hireDate;
+        return seniority;
+    }
+
+}
+
+
+final class Manager extends Emploee{
+    private double bonus;
+
+    public Manager(String firstName, String lastName, int birthdatyYear, int hireDate, String companyName, double salary, double bonus) {
+        super(firstName, lastName, birthdatyYear, hireDate, companyName, salary);
+    this.bonus=bonus;
+    }
+
+    @Override
+    public double getSalary(){
+        return super.getSalary()+bonus;
+    }
+
+    @Override
+    public String toString(){
+        return "Manager with lastName " + getLastName() + " and age " + getAge() + " has salary "+getSalary();
+    }
+}
