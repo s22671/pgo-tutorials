@@ -16,7 +16,7 @@ public class RefrigeratedContainer extends Container implements  Explosible {
                 "kielbaski", "maslo", "mleko",};
 
         for(int i=0; i<mojaEska.substring(1).length(); i++) {
-            this.products = this.products + " " + productsArray[Integer.parseInt(mojaEska.substring(i+1, i+2))];
+           
         }
     }
 
