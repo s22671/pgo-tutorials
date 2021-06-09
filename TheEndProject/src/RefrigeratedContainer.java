@@ -1,6 +1,6 @@
 public class RefrigeratedContainer extends Container implements  Explosible {
     private double temperature;
-    private String products = "";
+    private String products;
     private static String mojaEska = "s22671";
 
 
